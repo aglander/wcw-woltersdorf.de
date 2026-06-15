@@ -13,15 +13,28 @@
       <div class="cta-contact">
         <div class="cc">
           <span class="lbl">Telefon</span>
-          <span class="val"><b>03362 6530014</b> · 0162 7327400</span>
+          <span class="val">
+            <a href="tel:033626530014"><b>03362 6530014</b></a> ·
+            <a href="tel:01627327400">0162 7327400</a>
+          </span>
         </div>
         <div class="cc">
           <span class="lbl">WhatsApp</span>
-          <span class="val">Jederzeit erreichbar</span>
+          <span class="val">
+            <a
+              href="https://wa.me/491627327400"
+              target="_blank"
+              rel="noopener">Jederzeit erreichbar</a
+            >
+          </span>
         </div>
         <div class="cc">
           <span class="lbl">E-Mail</span>
-          <span class="val">vertrieb@wcw-woltersdorf.de</span>
+          <span class="val">
+            <a href="mailto:vertrieb@wcw-woltersdorf.de"
+              >vertrieb@wcw-woltersdorf.de</a
+            >
+          </span>
         </div>
         <div class="cc">
           <span class="lbl">Erreichbar</span>
@@ -195,6 +208,14 @@
   .cc .val {
     font-size: 17px;
     color: #fff;
+  }
+  .cc .val a {
+    color: #fff;
+    text-decoration: none;
+  }
+  .cc .val a:hover {
+    text-decoration: underline;
+    text-underline-offset: 3px;
   }
   .cc .val b {
     font-weight: 700;

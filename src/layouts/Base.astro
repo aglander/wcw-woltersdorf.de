@@ -16,7 +16,7 @@ const {
 
 // Kanonische URL aus der in astro.config gesetzten `site` ableiten.
 const canonical = new URL(Astro.url.pathname, Astro.site).href;
-const ogImage = new URL("/images/christian-hero.jpg", Astro.site).href;
+const ogImage = new URL("/images/og-image.jpg", Astro.site).href;
 
 const businessJsonLd = {
   "@context": "https://schema.org",
@@ -54,7 +54,10 @@ const businessJsonLd = {
     <meta name="description" content={description} />
     <link rel="canonical" href={canonical} />
     <meta name="theme-color" content="#2c7a35" />
+    <link rel="icon" href="/favicon.ico" sizes="32x32" />
     <link rel="icon" type="image/png" href="/assets/wcw-symbol-dark.png" />
+    <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
 
     <!-- Open Graph / Social -->
     <meta property="og:type" content="website" />
@@ -64,6 +67,9 @@ const businessJsonLd = {
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonical} />
     <meta property="og:image" content={ogImage} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="WCW – Alles für die Praxis, aus einer Hand." />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
@@ -94,6 +100,7 @@ const businessJsonLd = {
     />
   </head>
   <body>
+    <a class="skip-link" href="#top">Zum Inhalt springen</a>
     <slot />
     <!-- 100% privacy-first analytics -->
     <script

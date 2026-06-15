@@ -1,5 +1,6 @@
 ---
-import ImageSlot from "./ImageSlot.astro";
+import { Image } from "astro:assets";
+import christianHero from "../assets/christian-hero.jpg";
 ---
 
 <section class="hero">
@@ -28,11 +29,14 @@ import ImageSlot from "./ImageSlot.astro";
     <div class="hero-panel">
       <div class="curve"></div>
       <div class="curve2"></div>
-      <ImageSlot
+      <Image
         class="hero-img"
-        src="/images/christian-hero.jpg"
+        src={christianHero}
         alt="Christian Weischnors, Inhaber WCW, an seinem Schreibtisch"
-        placeholder="Foto: Christian Weischnors"
+        widths={[440, 700, 880]}
+        sizes="(max-width: 900px) 90vw, 460px"
+        loading="eager"
+        fetchpriority="high"
       />
       <div class="ansprech">
         <div class="av"><img src="/assets/wcw-symbol-light.png" alt="" /></div>
@@ -40,10 +44,16 @@ import ImageSlot from "./ImageSlot.astro";
           <div class="nm">Christian Weischnors</div>
           <div class="rl">Ihr persönlicher Ansprechpartner</div>
         </div>
-        <div class="ph">
+        <a
+          class="ph"
+          href="https://wa.me/491627327400"
+          target="_blank"
+          rel="noopener"
+          aria-label="Christian Weischnors per WhatsApp kontaktieren"
+        >
           <b>0162 7327400</b>
           <span>WhatsApp · immer</span>
-        </div>
+        </a>
       </div>
     </div>
   </div>
@@ -139,6 +149,7 @@ import ImageSlot from "./ImageSlot.astro";
     z-index: 2;
     width: 100%;
     height: 320px;
+    object-fit: cover;
     border-radius: 18px;
     overflow: hidden;
     box-shadow: 0 24px 50px -24px rgba(0, 0, 0, 0.5);
@@ -181,6 +192,11 @@ import ImageSlot from "./ImageSlot.astro";
   .ansprech .ph {
     margin-left: auto;
     text-align: right;
+    transition: opacity 0.15s ease;
+  }
+  .ansprech .ph:hover b {
+    text-decoration: underline;
+    text-underline-offset: 2px;
   }
   .ansprech .ph b {
     font-family: var(--disp);

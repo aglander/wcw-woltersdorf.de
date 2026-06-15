@@ -43,6 +43,42 @@ html {
   scroll-behavior: smooth;
 }
 
+/* Nutzer mit reduzierter Bewegung: kein Smooth-Scroll, keine Animationen */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Skip-Link: für Tastatur/Screenreader, sichtbar nur bei Fokus */
+.skip-link {
+  position: absolute;
+  left: 16px;
+  top: -48px;
+  z-index: 100;
+  background: var(--green-deep);
+  color: #fff;
+  font-family: var(--disp);
+  font-weight: 600;
+  font-size: 15px;
+  padding: 10px 18px;
+  border-radius: 10px;
+  transition: top 0.15s ease;
+}
+.skip-link:focus {
+  top: 16px;
+  outline: 2px solid #fff;
+  outline-offset: 2px;
+}
+
 body {
   margin: 0;
   background: var(--bg);

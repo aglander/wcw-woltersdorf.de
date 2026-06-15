@@ -51,11 +51,12 @@ liegt unter `docs/` und wird **nicht** mit der Website veröffentlicht.
 ### 2.1 Zweites Foto ergänzen („Über mich")
 - **Wo:** `src/components/Person.astro`
 - **Aktuell:** Platzhalter „Foto: Christian bei der Lieferung"
-- **Was tun:** Foto nach `public/images/` legen (z. B.
-  `christian-lieferung.jpg`) und in `Person.astro` einbinden – analog zum
-  Hero-Foto (`src` + `alt` an `<ImageSlot>` übergeben).
-- **Erstes Foto (Hero):** bereits eingebaut →
-  `public/images/christian-hero.jpg`.
+- **Was tun:** Foto nach `src/assets/` legen (z. B. `christian-lieferung.jpg`)
+  und in `Person.astro` über Astros `<Image>`-Komponente einbinden – analog
+  zum Hero-Foto. So wird es automatisch zu WebP optimiert und responsiv
+  ausgeliefert.
+- **Erstes Foto (Hero):** bereits eingebaut und optimiert →
+  `src/assets/christian-hero.jpg` (Astro erzeugt daraus WebP-Varianten).
 
 ---
 
