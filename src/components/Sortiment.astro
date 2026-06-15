@@ -1,0 +1,132 @@
+---
+const cats = [
+  {
+    tag: "Hygiene",
+    title: "Hygieneprodukte",
+    text: "Desinfektion, Schutzausrüstung, Verbrauchsmaterial.",
+  },
+  {
+    tag: "Medizin",
+    title: "Medizinprodukte",
+    text: "Einwegprodukte & Sets — mit Fachberatung für Orthopädie & Chirurgie.",
+  },
+  {
+    tag: "Technik",
+    title: "Medizintechnik",
+    text: "Geräte und technische Ausstattung für Ihre Praxis.",
+  },
+  {
+    tag: "Service",
+    title: "Büroartikel & Dienstleistungen",
+    text: "Damit auch rund um die Behandlung alles läuft.",
+  },
+];
+---
+
+<section class="block" id="leistungen">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Mein Sortiment</span>
+      <h2>Alles für die Praxis — aus einer Hand.</h2>
+      <p class="lead">
+        Mit über 100 Lieferanten im Rücken habe ich für nahezu jeden Bedarf eine
+        Lösung. Und wenn etwas nicht lieferbar ist, meist eine gute Alternative.
+      </p>
+    </div>
+    <div class="sort-grid">
+      <div class="cat span2">
+        <div class="inr">
+          <div class="tag">Schwerpunkt</div>
+          <h3>Praxisbedarf &amp; Sprechstundenbedarf</h3>
+          <p>
+            Handschuhe, Spritzen, Kanülen, Liegenrollen, Flächendesinfektion und
+            alles, was im Behandlungszimmer täglich gebraucht wird.
+          </p>
+        </div>
+      </div>
+      {
+        cats.map((c) => (
+          <div class="cat">
+            <div class="tag">{c.tag}</div>
+            <h3>{c.title}</h3>
+            <p>{c.text}</p>
+          </div>
+        ))
+      }
+    </div>
+    <div class="sort-foot">
+      Im Prinzip alles, was die Praxis braucht
+      <span class="x">— außer Arzneimittel.</span>
+    </div>
+  </div>
+</section>
+
+<style>
+  .sort-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin-top: 48px;
+  }
+  .cat {
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    padding: 26px;
+    background: var(--bg);
+    transition: 0.18s;
+    position: relative;
+    overflow: hidden;
+  }
+  .cat:hover {
+    border-color: var(--green);
+    box-shadow: 0 14px 30px -22px rgba(44, 122, 53, 0.6);
+    transform: translateY(-2px);
+  }
+  .cat .tag {
+    font-family: var(--disp);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--green-deep);
+  }
+  .cat h3 {
+    font-size: 21px;
+    margin: 12px 0 8px;
+  }
+  .cat p {
+    font-size: 15.5px;
+    color: var(--ink-soft);
+  }
+  .cat.span2 {
+    grid-column: span 2;
+    display: flex;
+    align-items: center;
+    background: var(--bg-2);
+  }
+  .cat.span2 .inr {
+    flex: 1;
+  }
+  .sort-foot {
+    margin-top: 24px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    font-family: var(--disp);
+    font-weight: 600;
+    font-size: 18px;
+    color: var(--ink);
+  }
+  .sort-foot .x {
+    color: var(--green-deep);
+  }
+
+  @media (max-width: 900px) {
+    .sort-grid {
+      grid-template-columns: 1fr;
+    }
+    .cat.span2 {
+      grid-column: auto;
+    }
+  }
+</style>

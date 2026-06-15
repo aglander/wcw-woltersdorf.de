@@ -1,0 +1,288 @@
+/* Lokal gehostete Schriften (variable fonts, decken 400–700 ab) —
+   keine Datenübertragung an Google Fonts. */
+@font-face {
+  font-family: "Hanken Grotesk";
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: swap;
+  src: url("/fonts/hanken-grotesk.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Space Grotesk";
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: swap;
+  src: url("/fonts/space-grotesk.woff2") format("woff2");
+}
+
+:root {
+  --bg: #ffffff;
+  --bg-2: #f3f6f2;
+  --bg-3: #eaf0e8;
+  --ink: #19231d;
+  --ink-soft: #4f5c53;
+  --ink-faint: #8a968d;
+  --green: #43933f;
+  --green-deep: #2c7a35;
+  --green-ink: #1e4523;
+  --lime: #9ecb5e;
+  --dark: #1b2521;
+  --dark-2: #141c19;
+  --line: rgba(25, 35, 29, 0.12);
+  --line-soft: rgba(25, 35, 29, 0.07);
+  --disp: "Space Grotesk", system-ui, sans-serif;
+  --sans: "Hanken Grotesk", system-ui, sans-serif;
+  --maxw: 1180px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--sans);
+  font-size: 18px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--disp);
+  font-weight: 600;
+  line-height: 1.06;
+  letter-spacing: -0.02em;
+  margin: 0;
+}
+
+p {
+  margin: 0;
+  text-wrap: pretty;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+.wrap {
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 0 32px;
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  white-space: nowrap;
+  font-family: var(--disp);
+  font-weight: 500;
+  font-size: 13px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--green-deep);
+  background: var(--bg-3);
+  border: 1px solid var(--line-soft);
+  padding: 7px 14px;
+  border-radius: 999px;
+}
+
+.eyebrow::before {
+  content: "";
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--green);
+}
+
+.lead {
+  font-size: 20px;
+  line-height: 1.55;
+  color: var(--ink-soft);
+}
+
+/* buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--disp);
+  font-weight: 600;
+  font-size: 16px;
+  padding: 15px 26px;
+  border-radius: 12px;
+  border: 1.5px solid transparent;
+  cursor: pointer;
+  transition: 0.18s ease;
+  white-space: nowrap;
+}
+
+.btn-primary {
+  background: var(--green);
+  color: #fff;
+}
+
+.btn-primary:hover {
+  background: var(--green-deep);
+  transform: translateY(-1px);
+}
+
+.btn-ghost {
+  background: transparent;
+  color: var(--ink);
+  border-color: var(--line);
+}
+
+.btn-ghost:hover {
+  border-color: var(--ink);
+}
+
+.btn-light {
+  background: #fff;
+  color: var(--green-deep);
+}
+
+.btn-light:hover {
+  transform: translateY(-1px);
+}
+
+/* section helpers */
+section.block {
+  padding: 90px 0;
+}
+
+.sec-head {
+  max-width: 660px;
+}
+
+.sec-head h2 {
+  font-size: 40px;
+  margin-top: 16px;
+  letter-spacing: -0.025em;
+}
+
+.sec-head .lead {
+  margin-top: 16px;
+}
+
+.center {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+/* image placeholder — photos arrive later, this stands in for <image-slot> */
+.img-slot {
+  position: relative;
+  display: grid;
+  place-items: center;
+  text-align: center;
+  background:
+    linear-gradient(135deg, var(--bg-3), var(--bg-2));
+  color: var(--ink-faint);
+  font-family: var(--disp);
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  padding: 16px;
+}
+
+.img-slot::before {
+  content: "";
+  position: absolute;
+  inset: 12px;
+  border: 1.5px dashed rgba(25, 35, 29, 0.18);
+  border-radius: inherit;
+  pointer-events: none;
+}
+
+.img-slot span {
+  position: relative;
+  z-index: 1;
+}
+
+@media (max-width: 900px) {
+  .sec-head h2 {
+    font-size: 32px;
+  }
+}
+
+/* Rechtstexte (Impressum / Datenschutz) */
+.legal {
+  padding: 64px 0 96px;
+}
+.legal-wrap {
+  max-width: 760px;
+}
+.legal h1 {
+  font-size: 44px;
+  margin: 12px 0 8px;
+}
+.legal h2 {
+  font-size: 22px;
+  margin: 40px 0 10px;
+}
+.legal p {
+  color: var(--ink-soft);
+  margin-bottom: 14px;
+  line-height: 1.65;
+}
+.legal a {
+  color: var(--green-deep);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.legal a:hover {
+  color: var(--green);
+}
+.legal ul {
+  color: var(--ink-soft);
+  line-height: 1.65;
+  padding-left: 22px;
+  margin-bottom: 14px;
+}
+.legal li {
+  margin-bottom: 4px;
+}
+.legal code {
+  background: var(--bg-3);
+  padding: 1px 6px;
+  border-radius: 4px;
+  font-size: 0.9em;
+}
+.legal mark {
+  background: var(--bg-3);
+  color: var(--green-ink);
+  padding: 1px 6px;
+  border-radius: 4px;
+  font-weight: 600;
+}
+.legal .back {
+  margin-top: 48px;
+  font-family: var(--disp);
+  font-weight: 600;
+}
+
+@media (max-width: 560px) {
+  .legal {
+    padding: 40px 0 64px;
+  }
+  .legal h1 {
+    font-size: 34px;
+  }
+}

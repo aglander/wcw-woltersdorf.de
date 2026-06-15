@@ -1,0 +1,154 @@
+---
+const without = [
+  "Bestellungen kosten wertvolle Zeit",
+  "Lange Liefer- und Wartezeiten",
+  "Viele Lieferanten, Portale, Logins",
+  "Ware vor der Tür statt im Lager",
+  "Im Notfall niemand erreichbar",
+];
+const withWcw = [
+  "Ein Anruf genügt — ich kümmere mich",
+  "Oft schon am nächsten Tag geliefert",
+  "Ein Ansprechpartner für alles",
+  "Lieferung in den Raum, an die Theke",
+  "WhatsApp jederzeit, auch im Notfall",
+];
+---
+
+<section
+  class="block"
+  id="vorteil"
+  style="background:var(--bg-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line);"
+>
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Warum WCW</span>
+      <h2>Der Unterschied zum großen Online-Shop.</h2>
+      <p class="lead">
+        Im Praxisalltag bleibt für Bestellungen kaum Zeit — und wenn etwas fehlt,
+        muss es schnell gehen. Genau hier liegt mein Vorteil.
+      </p>
+    </div>
+    <div class="cmp">
+      <div class="col without">
+        <div class="csub">Oft im Praxisalltag</div>
+        <h3>Ohne festen Partner</h3>
+        <ul>
+          {
+            without.map((item) => (
+              <li>
+                <span class="ic">✕</span>
+                <span>{item}</span>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+      <div class="col with">
+        <div class="csub">Mit WCW</div>
+        <h3>Ihr persönlicher Partner</h3>
+        <ul>
+          {
+            withWcw.map((item) => (
+              <li>
+                <span class="ic">✓</span>
+                <span>{item}</span>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .cmp {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+    margin-top: 48px;
+  }
+  .cmp .col {
+    border-radius: 20px;
+    padding: 34px 34px 30px;
+  }
+  .cmp .without {
+    background: var(--bg-2);
+    border: 1px solid var(--line);
+  }
+  .cmp .with {
+    background: var(--dark);
+    color: #e7ede8;
+  }
+  .cmp h3 {
+    font-size: 23px;
+    margin-bottom: 6px;
+  }
+  .cmp .without h3 {
+    color: var(--ink);
+  }
+  .cmp .with h3 {
+    color: #fff;
+  }
+  .cmp .csub {
+    font-size: 14px;
+    margin-bottom: 22px;
+    font-family: var(--disp);
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+  .cmp .without .csub {
+    color: var(--ink-faint);
+  }
+  .cmp .with .csub {
+    color: var(--lime);
+  }
+  .cmp ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .cmp li {
+    display: flex;
+    gap: 13px;
+    padding: 13px 0;
+    font-size: 16.5px;
+    border-top: 1px solid;
+    align-items: flex-start;
+  }
+  .cmp .without li {
+    border-color: var(--line);
+    color: var(--ink-soft);
+  }
+  .cmp .with li {
+    border-color: rgba(255, 255, 255, 0.12);
+    color: #d2ddd5;
+  }
+  .cmp li .ic {
+    flex: none;
+    width: 22px;
+    height: 22px;
+    border-radius: 6px;
+    display: grid;
+    place-items: center;
+    font-size: 13px;
+    font-weight: 700;
+    margin-top: 1px;
+  }
+  .cmp .without li .ic {
+    background: rgba(25, 35, 29, 0.08);
+    color: var(--ink-faint);
+  }
+  .cmp .with li .ic {
+    background: var(--green);
+    color: #fff;
+  }
+
+  @media (max-width: 900px) {
+    .cmp {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

@@ -1,0 +1,336 @@
+---
+---
+
+<section class="cta" id="angebot">
+  <div class="curve"></div>
+  <div class="wrap cta-grid">
+    <div>
+      <h2>Sagen Sie mir, was Sie brauchen.</h2>
+      <p class="lead">
+        Ein paar Zeilen genügen. Ich melde mich persönlich mit einem auf Sie
+        zugeschnittenen Angebot.
+      </p>
+      <div class="cta-contact">
+        <div class="cc">
+          <span class="lbl">Telefon</span>
+          <span class="val"><b>03362 6530014</b> · 0162 7327400</span>
+        </div>
+        <div class="cc">
+          <span class="lbl">WhatsApp</span>
+          <span class="val">Jederzeit erreichbar</span>
+        </div>
+        <div class="cc">
+          <span class="lbl">E-Mail</span>
+          <span class="val">vertrieb@wcw-woltersdorf.de</span>
+        </div>
+        <div class="cc">
+          <span class="lbl">Erreichbar</span>
+          <span class="val">Telefonisch 8–18 Uhr · WhatsApp &amp; E-Mail immer</span>
+        </div>
+      </div>
+      <p class="cta-note">
+        Preise nenne ich individuell — sie ändern sich etwa alle zwei Wochen. Sie
+        bekommen immer den aktuellen, fairen Preis.
+      </p>
+    </div>
+    <form
+      class="quote"
+      action="https://form.taxi/s/81a17cqv"
+      method="POST"
+    >
+      <h3>Angebot anfordern</h3>
+      <p class="fsub">Kurz &amp; unkompliziert — in unter einer Minute.</p>
+      <div class="frow">
+        <div class="field">
+          <label for="q-name">Ihr Name</label>
+          <input id="q-name" name="Name" type="text" placeholder="Vor- und Nachname" required />
+        </div>
+        <div class="field">
+          <label for="q-praxis">Praxis / Einrichtung</label>
+          <input id="q-praxis" name="Praxis" type="text" placeholder="z. B. Orthopädie am Park" />
+        </div>
+      </div>
+      <div class="field">
+        <label for="q-bedarf">Was brauchen Sie?</label>
+        <textarea
+          id="q-bedarf"
+          name="Bedarf"
+          placeholder="Produkte, Mengen oder einfach Ihr Anliegen — ich kümmere mich darum."
+        ></textarea>
+      </div>
+      <div class="frow">
+        <div class="field">
+          <label for="q-tel">Telefon</label>
+          <input id="q-tel" name="Telefon" type="tel" placeholder="Für den Rückruf" />
+        </div>
+        <div class="field">
+          <label for="q-email">E-Mail</label>
+          <input id="q-email" name="Email" type="email" placeholder="name@praxis.de" />
+        </div>
+      </div>
+      {/* Honeypot gegen Spam-Bots — bleibt für Menschen unsichtbar */}
+      <input
+        type="text"
+        name="_gotcha"
+        tabindex="-1"
+        autocomplete="off"
+        aria-hidden="true"
+        class="hp"
+      />
+      <button type="submit" class="btn btn-primary">Angebot anfordern</button>
+      <p class="done">Danke! Ich melde mich schnellstmöglich bei Ihnen.</p>
+      <p class="err" role="alert">
+        Das hat leider nicht geklappt. Bitte versuchen Sie es erneut oder
+        melden Sie sich direkt unter
+        <a href="tel:01627327400">0162 7327400</a>.
+      </p>
+      <p class="priv">
+        Ihre Angaben nutze ich ausschließlich zur Bearbeitung Ihrer Anfrage.
+      </p>
+    </form>
+  </div>
+</section>
+
+<script>
+  document.querySelectorAll<HTMLFormElement>("form.quote").forEach((form) => {
+    form.addEventListener("submit", async (event) => {
+      event.preventDefault();
+      const done = form.querySelector<HTMLElement>(".done");
+      const err = form.querySelector<HTMLElement>(".err");
+      const btn = form.querySelector<HTMLButtonElement>(".btn-primary");
+      const label = btn?.textContent ?? "Angebot anfordern";
+
+      if (err) err.style.display = "none";
+      if (btn) {
+        btn.disabled = true;
+        btn.textContent = "Wird gesendet …";
+      }
+
+      try {
+        const res = await fetch(form.action, {
+          method: "POST",
+          headers: { Accept: "application/json" },
+          body: new FormData(form),
+        });
+        const data = await res.json().catch(() => ({}));
+
+        if (res.ok && data.success === true) {
+          form.reset();
+          if (done) done.style.display = "block";
+          if (btn) btn.textContent = "Gesendet ✓";
+          return;
+        }
+        throw new Error(data.error_msg || data.error || "submit failed");
+      } catch {
+        if (err) err.style.display = "block";
+        if (btn) {
+          btn.disabled = false;
+          btn.textContent = label;
+        }
+      }
+    });
+  });
+</script>
+
+<style>
+  .cta {
+    background: linear-gradient(
+      160deg,
+      var(--green) 0%,
+      var(--green-deep) 60%,
+      #225e2a 100%
+    );
+    color: #fff;
+    position: relative;
+    overflow: hidden;
+  }
+  .cta .curve {
+    position: absolute;
+    top: -60px;
+    left: -60px;
+    width: 340px;
+    height: 340px;
+    border-radius: 50%;
+    background: rgba(158, 203, 94, 0.18);
+  }
+  .cta-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    padding-block: 84px;
+    align-items: start;
+    position: relative;
+    z-index: 2;
+  }
+  .cta h2 {
+    font-size: 42px;
+    color: #fff;
+  }
+  .cta .lead {
+    color: rgba(255, 255, 255, 0.85);
+    margin-top: 18px;
+    max-width: 25em;
+  }
+  .cta-contact {
+    margin-top: 34px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  .cc {
+    display: flex;
+    gap: 14px;
+    align-items: baseline;
+  }
+  .cc .lbl {
+    font-family: var(--disp);
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #cfe6a5;
+    font-weight: 600;
+    width: 120px;
+    flex: none;
+  }
+  .cc .val {
+    font-size: 17px;
+    color: #fff;
+  }
+  .cc .val b {
+    font-weight: 700;
+    font-family: var(--disp);
+  }
+  .cta-note {
+    margin-top: 26px;
+    color: rgba(255, 255, 255, 0.75);
+    font-size: 14.5px;
+    max-width: 30em;
+  }
+
+  form.quote {
+    background: #fff;
+    border-radius: 22px;
+    padding: 36px;
+    color: var(--ink);
+    box-shadow: 0 30px 70px -28px rgba(0, 0, 0, 0.45);
+  }
+  form.quote h3 {
+    font-size: 24px;
+    margin-bottom: 4px;
+  }
+  form.quote .fsub {
+    font-size: 15px;
+    color: var(--ink-soft);
+    margin-bottom: 24px;
+  }
+  .field {
+    margin-bottom: 15px;
+  }
+  .field label {
+    display: block;
+    font-family: var(--disp);
+    font-size: 13px;
+    font-weight: 600;
+    margin-bottom: 7px;
+  }
+  .field input,
+  .field textarea {
+    width: 100%;
+    border: 1px solid var(--line);
+    border-radius: 11px;
+    padding: 13px 15px;
+    font-family: var(--sans);
+    font-size: 16px;
+    background: var(--bg-2);
+    color: var(--ink);
+    transition: 0.15s;
+  }
+  .field input:focus,
+  .field textarea:focus {
+    outline: none;
+    border-color: var(--green);
+    background: #fff;
+    box-shadow: 0 0 0 3px rgba(67, 147, 63, 0.13);
+  }
+  .field textarea {
+    resize: vertical;
+    min-height: 92px;
+  }
+  .frow {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 13px;
+  }
+  form.quote .btn-primary {
+    width: 100%;
+    justify-content: center;
+    margin-top: 6px;
+  }
+  form.quote .btn-primary:disabled {
+    opacity: 0.6;
+    cursor: progress;
+    transform: none;
+  }
+  .hp {
+    position: absolute;
+    left: -9999px;
+    width: 1px;
+    height: 1px;
+    opacity: 0;
+    pointer-events: none;
+  }
+  .done {
+    display: none;
+    color: var(--green-deep);
+    font-weight: 600;
+    text-align: center;
+    margin-top: 13px;
+  }
+  .err {
+    display: none;
+    color: #b3261e;
+    font-weight: 600;
+    text-align: center;
+    margin-top: 13px;
+    font-size: 15px;
+  }
+  .err a {
+    text-decoration: underline;
+  }
+  .priv {
+    font-size: 12.5px;
+    color: var(--ink-faint);
+    margin-top: 13px;
+    text-align: center;
+  }
+
+  @media (max-width: 900px) {
+    .cta-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (max-width: 560px) {
+    .cta-grid {
+      padding-block: 56px;
+      gap: 40px;
+    }
+    .cta h2 {
+      font-size: 32px;
+    }
+    /* Label und Wert untereinander, damit lange Werte nicht gequetscht werden */
+    .cc {
+      flex-direction: column;
+      gap: 4px;
+    }
+    .cc .lbl {
+      width: auto;
+    }
+    .frow {
+      grid-template-columns: 1fr;
+    }
+    form.quote {
+      padding: 26px;
+    }
+  }
+</style>

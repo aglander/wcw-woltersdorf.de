@@ -1,0 +1,70 @@
+---
+---
+
+<div class="strip">
+  <div class="wrap strip-in">
+    <p>
+      Vertraut von über 100 Praxen in Berlin, Brandenburg &amp; deutschlandweit
+    </p>
+    <div class="pills">
+      <span class="pill">Lieferung oft schon <b>am nächsten Tag</b></span>
+      <span class="pill"><b>Faire</b> Preise</span>
+      <span class="pill"><b>1</b> Ansprechpartner</span>
+    </div>
+  </div>
+</div>
+
+<style>
+  .strip {
+    background: var(--dark);
+    color: #e7ede8;
+  }
+  .strip-in {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    /* padding-block, damit das horizontale Padding von .wrap erhalten bleibt */
+    padding-block: 22px;
+    gap: 24px;
+    flex-wrap: wrap;
+  }
+  .strip p {
+    font-family: var(--disp);
+    font-size: 15px;
+    color: #afc0b4;
+    letter-spacing: 0.02em;
+  }
+  .pills {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+  .pill {
+    font-family: var(--disp);
+    font-size: 14px;
+    font-weight: 500;
+    color: #e7ede8;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: 999px;
+    padding: 8px 16px;
+    white-space: nowrap;
+  }
+  .pill b {
+    color: var(--lime);
+  }
+
+  @media (max-width: 700px) {
+    .strip-in {
+      flex-direction: column;
+      align-items: flex-start;
+      padding-block: 26px;
+      gap: 18px;
+    }
+    .pills {
+      gap: 8px;
+    }
+    .pill {
+      white-space: normal;
+    }
+  }
+</style>

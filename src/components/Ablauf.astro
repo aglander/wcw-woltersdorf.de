@@ -1,0 +1,94 @@
+---
+const steps = [
+  {
+    n: "SCHRITT 01",
+    title: "Erstkontakt",
+    text: "Sie melden sich — telefonisch, per WhatsApp oder E-Mail.",
+  },
+  {
+    n: "SCHRITT 02",
+    title: "Bedarf besprechen",
+    text: "Sie nennen die Produkte, ich berate bei Bedarf mit Alternativen.",
+  },
+  {
+    n: "SCHRITT 03",
+    title: "Persönliches Angebot",
+    text: "Zugeschnitten auf Sie — mit aktuellen, fairen Preisen.",
+  },
+  {
+    n: "SCHRITT 04",
+    title: "Bestellen nach Wunsch",
+    text: "Telefon, WhatsApp, E-Mail oder Bestelltool — Sie wählen.",
+  },
+  {
+    n: "SCHRITT 05",
+    title: "Lieferung per Dropshipping",
+    text: "Schnell in die Praxis — die Erstlieferung bringe ich oft selbst.",
+    hot: true,
+  },
+  {
+    n: "SCHRITT 06",
+    title: "Regelmäßige Betreuung",
+    text: "Ich schaue vorbei, damit wir im Gespräch bleiben.",
+    hot: true,
+  },
+];
+---
+
+<section class="block" id="ablauf">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">So läuft es ab</span>
+      <h2>In sechs unkomplizierten Schritten.</h2>
+    </div>
+    <div class="stepper">
+      {
+        steps.map((s) => (
+          <div class:list={["stp", { hot: s.hot }]}>
+            <div class="sn">{s.n}</div>
+            <h3>{s.title}</h3>
+            <p>{s.text}</p>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>
+
+<style>
+  .stepper {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px 26px;
+    margin-top: 50px;
+  }
+  .stp {
+    position: relative;
+    padding-top: 24px;
+    border-top: 2px solid var(--line);
+  }
+  .stp .sn {
+    font-family: var(--disp);
+    font-weight: 700;
+    font-size: 15px;
+    color: var(--green);
+    letter-spacing: 0.06em;
+  }
+  .stp h3 {
+    font-size: 21px;
+    margin: 12px 0 8px;
+  }
+  .stp p {
+    font-size: 15.5px;
+    color: var(--ink-soft);
+  }
+  .stp.hot {
+    border-color: var(--green);
+  }
+
+  @media (max-width: 900px) {
+    .stepper {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

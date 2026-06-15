@@ -1,0 +1,109 @@
+---
+const cards = [
+  {
+    tag: "Notfall gelöst",
+    title: "Das Naht-Set, das es sofort brauchte",
+    text: "Eine Praxis benötigte dringend ein Naht-Set. Ich habe es bei einer anderen Praxis ausgeliehen und sofort nachbestellt — am selben Tag gelöst.",
+  },
+  {
+    tag: "Sonderstatus",
+    title: "Für langjährige Kunden",
+    text: "Persönliche Lieferung, gute Preise — und ab und zu eine kleine Aufmerksamkeit als Nervennahrung.",
+  },
+  {
+    tag: "Verlässlich",
+    title: "Über 100 Praxen, deutschlandweit",
+    text: "Manche Kunden vertrauen mir schon aus meiner Zeit als Angestellter — seit fast zehn Jahren.",
+  },
+];
+---
+
+<section class="block" id="vertrauen">
+  <div class="wrap">
+    <div class="ver-quote">
+      <p class="big">
+        „Bekommen wir wieder Kekse?“
+        <span class="hl">Manche Kunden begleite ich schon fast 10 Jahre</span> —
+        Vertrauen entsteht über verlässliche Lieferungen und ein Gesicht, das
+        man kennt.
+      </p>
+      <p class="by">— typische Begrüßung in einer Stammpraxis</p>
+    </div>
+    <div class="ver-cards">
+      {
+        cards.map((c) => (
+          <div class="vc">
+            <div class="tag">{c.tag}</div>
+            <h3>{c.title}</h3>
+            <p>{c.text}</p>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>
+
+<style>
+  .ver-quote {
+    text-align: center;
+    max-width: 880px;
+    margin: 0 auto;
+  }
+  .ver-quote .big {
+    font-family: var(--disp);
+    font-weight: 600;
+    font-size: 40px;
+    line-height: 1.18;
+    letter-spacing: -0.025em;
+    color: var(--ink);
+  }
+  .ver-quote .big .hl {
+    color: var(--green-deep);
+  }
+  .ver-quote .by {
+    margin-top: 22px;
+    font-family: var(--disp);
+    font-weight: 500;
+    color: var(--ink-faint);
+    font-size: 15px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+  .ver-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin-top: 54px;
+  }
+  .vc {
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    padding: 28px;
+    background: var(--bg);
+  }
+  .vc .tag {
+    font-family: var(--disp);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--green-deep);
+  }
+  .vc h3 {
+    font-size: 20px;
+    margin: 12px 0 9px;
+  }
+  .vc p {
+    font-size: 15.5px;
+    color: var(--ink-soft);
+  }
+
+  @media (max-width: 900px) {
+    .ver-cards {
+      grid-template-columns: 1fr;
+    }
+    .ver-quote .big {
+      font-size: 30px;
+    }
+  }
+</style>

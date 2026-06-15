@@ -1,0 +1,29 @@
+---
+interface Props {
+  placeholder: string;
+  class?: string;
+  src?: string;
+  alt?: string;
+}
+
+const { placeholder, class: className, src, alt } = Astro.props;
+---
+
+{
+  src ? (
+    <img class:list={["img-filled", className]} src={src} alt={alt ?? placeholder} loading="lazy" />
+  ) : (
+    <div class:list={["img-slot", className]} role="img" aria-label={placeholder}>
+      <span>{placeholder}</span>
+    </div>
+  )
+}
+
+<style>
+  .img-filled {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+</style>

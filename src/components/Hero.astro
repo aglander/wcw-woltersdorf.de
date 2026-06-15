@@ -1,0 +1,239 @@
+---
+import ImageSlot from "./ImageSlot.astro";
+---
+
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <span class="eyebrow">Praxisbedarf · deutschlandweit</span>
+      <h1>
+        Ein Partner für alles, was Ihre Praxis braucht —
+        <span class="hl">und ein Gesicht, das Sie kennen.</span>
+      </h1>
+      <p class="lead">
+        Seit über 20 Jahren beliefere ich Arztpraxen, MVZ und Kliniken mit
+        Praxis- und Sprechstundenbedarf. Persönlich, schnell und mit einer
+        Lösung für jeden Engpass.
+      </p>
+      <div class="hero-cta">
+        <a class="btn btn-primary" href="#angebot">Angebot anfordern →</a>
+        <a class="btn btn-ghost" href="#angebot">Rückruf vereinbaren</a>
+      </div>
+      <div class="hero-mini">
+        <div class="m"><b>20+</b><span>Jahre Erfahrung</span></div>
+        <div class="m"><b>100+</b><span>Praxen betreut</span></div>
+        <div class="m"><b>100+</b><span>Lieferanten</span></div>
+      </div>
+    </div>
+    <div class="hero-panel">
+      <div class="curve"></div>
+      <div class="curve2"></div>
+      <ImageSlot
+        class="hero-img"
+        src="/images/christian-hero.jpg"
+        alt="Christian Weischnors, Inhaber WCW, an seinem Schreibtisch"
+        placeholder="Foto: Christian Weischnors"
+      />
+      <div class="ansprech">
+        <div class="av"><img src="/assets/wcw-symbol-light.png" alt="" /></div>
+        <div>
+          <div class="nm">Christian Weischnors</div>
+          <div class="rl">Ihr persönlicher Ansprechpartner</div>
+        </div>
+        <div class="ph">
+          <b>0162 7327400</b>
+          <span>WhatsApp · immer</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .hero {
+    padding: 64px 0 80px;
+  }
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1.02fr 0.98fr;
+    gap: 54px;
+    align-items: center;
+  }
+  .hero h1 {
+    font-size: 58px;
+    margin: 22px 0 0;
+    letter-spacing: -0.03em;
+  }
+  .hero h1 .hl {
+    color: var(--green-deep);
+  }
+  .hero .lead {
+    margin-top: 22px;
+    max-width: 28em;
+  }
+  .hero-cta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 13px;
+    margin-top: 32px;
+  }
+  .hero-mini {
+    display: flex;
+    gap: 28px;
+    margin-top: 34px;
+    flex-wrap: wrap;
+  }
+  .hero-mini .m b {
+    font-family: var(--disp);
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--ink);
+    display: block;
+    line-height: 1;
+  }
+  .hero-mini .m span {
+    font-size: 13.5px;
+    color: var(--ink-soft);
+    display: block;
+    margin-top: 6px;
+  }
+
+  /* green panel */
+  .hero-panel {
+    position: relative;
+    border-radius: 26px;
+    overflow: hidden;
+    background: linear-gradient(
+      150deg,
+      var(--green) 0%,
+      var(--green-deep) 55%,
+      #225e2a 100%
+    );
+    padding: 34px;
+    min-height: 520px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+  }
+  .hero-panel .curve {
+    position: absolute;
+    top: -2px;
+    right: -2px;
+    width: 75%;
+    height: 46%;
+    background: var(--lime);
+    opacity: 0.92;
+    border-bottom-left-radius: 100% 100%;
+  }
+  .hero-panel .curve2 {
+    position: absolute;
+    top: -2px;
+    right: -2px;
+    width: 52%;
+    height: 30%;
+    background: #cfe6a5;
+    border-bottom-left-radius: 100% 100%;
+  }
+  .hero-panel :global(.hero-img) {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    height: 320px;
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: 0 24px 50px -24px rgba(0, 0, 0, 0.5);
+  }
+  .ansprech {
+    position: relative;
+    z-index: 2;
+    margin-top: 20px;
+    background: rgba(255, 255, 255, 0.96);
+    backdrop-filter: blur(4px);
+    border-radius: 16px;
+    padding: 18px 20px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+  .ansprech .av {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: var(--dark);
+    display: grid;
+    place-items: center;
+    flex: none;
+  }
+  .ansprech .av img {
+    width: 30px;
+    height: 30px;
+  }
+  .ansprech .nm {
+    font-family: var(--disp);
+    font-weight: 700;
+    font-size: 17px;
+    color: var(--ink);
+  }
+  .ansprech .rl {
+    font-size: 13px;
+    color: var(--ink-soft);
+  }
+  .ansprech .ph {
+    margin-left: auto;
+    text-align: right;
+  }
+  .ansprech .ph b {
+    font-family: var(--disp);
+    font-weight: 600;
+    font-size: 15px;
+    color: var(--green-deep);
+    display: block;
+    white-space: nowrap;
+  }
+  .ansprech .ph span {
+    font-size: 12px;
+    color: var(--ink-faint);
+    white-space: nowrap;
+  }
+
+  @media (max-width: 900px) {
+    .hero-grid {
+      grid-template-columns: 1fr;
+    }
+    .hero h1 {
+      font-size: 42px;
+    }
+  }
+
+  @media (max-width: 560px) {
+    .hero {
+      padding: 40px 0 56px;
+    }
+    .hero h1 {
+      font-size: 34px;
+    }
+    .hero-panel {
+      padding: 22px;
+      min-height: 0;
+    }
+    .hero-panel :global(.hero-img) {
+      height: 240px;
+    }
+    /* Ansprechpartner-Karte: untereinander statt nebeneinander,
+       damit Name und Telefonnummer nicht abgeschnitten werden */
+    .ansprech {
+      flex-wrap: wrap;
+      gap: 12px 14px;
+    }
+    .ansprech .ph {
+      margin-left: 0;
+      text-align: left;
+      width: 100%;
+      padding-top: 12px;
+      border-top: 1px solid var(--line);
+    }
+    .ansprech .nm {
+      font-size: 16px;
+    }
+  }
+</style>

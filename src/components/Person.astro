@@ -1,0 +1,98 @@
+---
+import ImageSlot from "./ImageSlot.astro";
+---
+
+<section class="person" id="christian">
+  <div class="wrap person-grid">
+    <ImageSlot class="person-img" placeholder="Foto: Christian bei der Lieferung" />
+    <div>
+      <span class="eyebrow">Über mich</span>
+      <h2>Warum ich den Schritt in die Selbstständigkeit gewagt habe.</h2>
+      <p class="qt">
+        „Dank meines großen Netzwerks habe ich
+        <span class="hl">immer eine Lösung parat.</span>“
+      </p>
+      <p>
+        Mein früherer Arbeitgeber trennte sich von der Sparte Praxisbedarf. In
+        einer schlaflosen Nacht war für mich klar: Dieses Wissen und diese
+        Beziehungen gibt man nicht her.
+      </p>
+      <p>
+        Was mich an der Branche gestört hat — lange Lieferzeiten und Fehler in
+        der Logistik — wollte ich besser machen: kürzere Wege durch Dropshipping
+        und einen echten Ansprechpartner, der mitdenkt. Besonders für Orthopäden
+        und Chirurgen bringe ich mein Fachwissen in die Produktberatung ein.
+      </p>
+    </div>
+  </div>
+</section>
+
+<style>
+  .person {
+    background: var(--dark-2);
+    color: #e7ede8;
+  }
+  .person-grid {
+    display: grid;
+    grid-template-columns: 0.85fr 1.15fr;
+    gap: 54px;
+    align-items: center;
+    padding-block: 84px;
+  }
+  .person :global(.person-img) {
+    width: 100%;
+    height: 460px;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 30px 60px -30px rgba(0, 0, 0, 0.7);
+  }
+  .person :global(.eyebrow) {
+    background: rgba(158, 203, 94, 0.14);
+    border-color: transparent;
+    color: var(--lime);
+  }
+  .person h2 {
+    color: #fff;
+    font-size: 38px;
+    margin-top: 18px;
+  }
+  .person .qt {
+    font-family: var(--disp);
+    font-weight: 600;
+    font-size: 26px;
+    color: #fff;
+    line-height: 1.25;
+    margin: 24px 0;
+    letter-spacing: -0.02em;
+  }
+  .person .qt .hl {
+    color: var(--lime);
+  }
+  .person p {
+    color: #afc0b4;
+    margin-bottom: 14px;
+    font-size: 16.5px;
+  }
+
+  @media (max-width: 900px) {
+    .person-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (max-width: 560px) {
+    .person-grid {
+      padding-block: 56px;
+      gap: 32px;
+    }
+    .person :global(.person-img) {
+      height: 320px;
+    }
+    .person h2 {
+      font-size: 30px;
+    }
+    .person .qt {
+      font-size: 22px;
+    }
+  }
+</style>
