@@ -4,12 +4,45 @@ import "../styles/global.css";
 interface Props {
   title?: string;
   description?: string;
+  /** LocalBusiness-Strukturdaten ausgeben (nur Startseite) */
+  business?: boolean;
 }
 
 const {
   title = "WCW – Weischnors Consulting Woltersdorf",
   description = "Ihr persönlicher Partner für Praxis- und Sprechstundenbedarf in Berlin, Brandenburg und deutschlandweit. Seit über 20 Jahren – persönlich, schnell, fair.",
+  business = false,
 } = Astro.props;
+
+// Kanonische URL aus der in astro.config gesetzten `site` ableiten.
+const canonical = new URL(Astro.url.pathname, Astro.site).href;
+const ogImage = new URL("/images/christian-hero.jpg", Astro.site).href;
+
+const businessJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  name: "WCW – Weischnors Consulting Woltersdorf",
+  description,
+  url: Astro.site?.href,
+  telephone: ["+49 3362 6530014", "+49 162 7327400"],
+  email: "vertrieb@wcw-woltersdorf.de",
+  founder: { "@type": "Person", name: "Christian Weischnors" },
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: "Zu den Eichen 6",
+    postalCode: "15569",
+    addressLocality: "Woltersdorf",
+    addressCountry: "DE",
+  },
+  areaServed: "DE",
+  knowsAbout: [
+    "Praxisbedarf",
+    "Sprechstundenbedarf",
+    "Hygieneprodukte",
+    "Medizinprodukte",
+    "Medizintechnik",
+  ],
+};
 ---
 
 <!doctype html>
@@ -19,7 +52,32 @@ const {
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{title}</title>
     <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    <meta name="theme-color" content="#2c7a35" />
     <link rel="icon" type="image/png" href="/assets/wcw-symbol-dark.png" />
+
+    <!-- Open Graph / Social -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="WCW – Weischnors Consulting Woltersdorf" />
+    <meta property="og:locale" content="de_DE" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={ogImage} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+
+    {
+      business && (
+        <script
+          type="application/ld+json"
+          is:inline
+          set:html={JSON.stringify(businessJsonLd)}
+        />
+      )
+    }
     <link
       rel="preload"
       href="/fonts/space-grotesk.woff2"

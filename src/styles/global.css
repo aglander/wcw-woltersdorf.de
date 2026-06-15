@@ -21,7 +21,7 @@
   --bg-3: #eaf0e8;
   --ink: #19231d;
   --ink-soft: #4f5c53;
-  --ink-faint: #8a968d;
+  --ink-faint: #667066;
   --green: #43933f;
   --green-deep: #2c7a35;
   --green-ink: #1e4523;
@@ -133,12 +133,13 @@ img {
 }
 
 .btn-primary {
-  background: var(--green);
+  /* green-deep statt green: Kontrast zum weißen Text erreicht AA (5,3:1) */
+  background: var(--green-deep);
   color: #fff;
 }
 
 .btn-primary:hover {
-  background: var(--green-deep);
+  background: #225e2a;
   transform: translateY(-1px);
 }
 
