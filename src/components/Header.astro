@@ -1,9 +1,14 @@
 ---
+// Auf der Startseite reichen reine Sprung-Anker; auf anderen Seiten
+// (Impressum, Datenschutz) müssen die Links erst zur Startseite führen.
+const isHome = Astro.url.pathname === "/";
+const anchor = (id: string) => (isHome ? `#${id}` : `/#${id}`);
+
 const links = [
-  { href: "#leistungen", label: "Sortiment" },
-  { href: "#vorteil", label: "Warum WCW" },
-  { href: "#ablauf", label: "Ablauf" },
-  { href: "#christian", label: "Über mich" },
+  { id: "leistungen", label: "Sortiment" },
+  { id: "vorteil", label: "Warum WCW" },
+  { id: "ablauf", label: "Ablauf" },
+  { id: "christian", label: "Über mich" },
 ];
 ---
 
@@ -14,11 +19,11 @@ const links = [
       <span class="bt"><b>WCW</b><span>Weischnors Consulting</span></span>
     </a>
     <nav class="nav-links">
-      {links.map((l) => <a href={l.href}>{l.label}</a>)}
+      {links.map((l) => <a href={anchor(l.id)}>{l.label}</a>)}
     </nav>
     <div class="nav-cta">
       <a class="nav-phone" href="tel:01627327400">0162 7327400</a>
-      <a class="btn btn-primary" href="#angebot">Angebot anfordern</a>
+      <a class="btn btn-primary" href={anchor("angebot")}>Angebot anfordern</a>
     </div>
   </div>
 </header>
