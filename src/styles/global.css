@@ -223,36 +223,6 @@ section.block {
   text-align: center;
 }
 
-/* image placeholder — photos arrive later, this stands in for <image-slot> */
-.img-slot {
-  position: relative;
-  display: grid;
-  place-items: center;
-  text-align: center;
-  background:
-    linear-gradient(135deg, var(--bg-3), var(--bg-2));
-  color: var(--ink-faint);
-  font-family: var(--disp);
-  font-size: 14px;
-  font-weight: 500;
-  letter-spacing: 0.02em;
-  padding: 16px;
-}
-
-.img-slot::before {
-  content: "";
-  position: absolute;
-  inset: 12px;
-  border: 1.5px dashed rgba(25, 35, 29, 0.18);
-  border-radius: inherit;
-  pointer-events: none;
-}
-
-.img-slot span {
-  position: relative;
-  z-index: 1;
-}
-
 @media (max-width: 900px) {
   .sec-head h2 {
     font-size: 32px;

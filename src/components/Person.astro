@@ -1,10 +1,18 @@
 ---
-import ImageSlot from "./ImageSlot.astro";
+import { Image } from "astro:assets";
+import christianLieferung from "../assets/christian-lieferung.jpg";
 ---
 
 <section class="person" id="christian">
   <div class="wrap person-grid">
-    <ImageSlot class="person-img" placeholder="Foto: Christian bei der Lieferung" />
+    <Image
+      class="person-img"
+      src={christianLieferung}
+      alt="Christian Weischnors bei der persönlichen Lieferung in eine Praxis"
+      widths={[420, 640, 840]}
+      sizes="(max-width: 900px) 90vw, 420px"
+      loading="lazy"
+    />
     <div>
       <span class="eyebrow">Über mich</span>
       <h2>Warum ich den Schritt in die Selbstständigkeit gewagt habe.</h2>
@@ -42,6 +50,7 @@ import ImageSlot from "./ImageSlot.astro";
   .person :global(.person-img) {
     width: 100%;
     height: 460px;
+    object-fit: cover;
     border-radius: 20px;
     overflow: hidden;
     box-shadow: 0 30px 60px -30px rgba(0, 0, 0, 0.7);

@@ -48,22 +48,17 @@ liegt unter `docs/` und wird **nicht** mit der Website veröffentlicht.
 
 ## 2. Inhalte
 
-### 2.1 Zweites Foto ergänzen („Über mich")
-- **Wo:** `src/components/Person.astro`
-- **Aktuell:** Platzhalter „Foto: Christian bei der Lieferung"
-- **Was tun:** Foto nach `src/assets/` legen (z. B. `christian-lieferung.jpg`)
-  und in `Person.astro` über Astros `<Image>`-Komponente einbinden – analog
-  zum Hero-Foto. So wird es automatisch zu WebP optimiert und responsiv
-  ausgeliefert.
-- **Erstes Foto (Hero):** bereits eingebaut und optimiert →
-  `src/assets/christian-hero.jpg` (Astro erzeugt daraus WebP-Varianten).
+> Alle Inhaltspunkte erledigt. Beide Fotos sind eingebunden und über Astros
+> `<Image>` automatisch zu WebP optimiert:
+> - Hero: `src/assets/christian-hero.jpg`
+> - Über mich: `src/assets/christian-lieferung.jpg`
 
 ---
 
 ## 3. Bereits erledigt (zur Übersicht)
 
 - [x] Website-Grundgerüst in Astro (Variante B) umgesetzt
-- [x] Hero-Foto von Christian eingebunden
+- [x] Beide Fotos eingebunden (Hero + Über mich), als WebP optimiert
 - [x] Kontaktformular an Form.taxi angebunden (AJAX, Erfolgs-/Fehlermeldung,
       Honeypot)
 - [x] Simple Analytics eingebaut (privacy-first, DNT respektiert)
