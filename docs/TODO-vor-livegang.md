@@ -8,12 +8,9 @@ liegt unter `docs/` und wird **nicht** mit der Website veröffentlicht.
 
 ## 1. Rechtlich (Pflicht vor Livegang)
 
-### 1.1 USt-IdNr. ins Impressum eintragen
-- **Wo:** `src/pages/impressum.astro`, Abschnitt „Umsatzsteuer-Identifikationsnummer"
-- **Aktuell:** Platzhalter `[USt-IdNr. bitte eintragen]`
-- **Was tun:** Die echte USt-IdNr. einsetzen.
-  - Falls **keine** USt-IdNr. vorhanden ist (z. B. Kleinunternehmer nach § 19 UStG):
-    Bescheid geben → der ganze Abschnitt wird entfernt.
+### 1.1 USt-IdNr. ins Impressum eintragen — ✅ erledigt
+- **Status:** USt-IdNr. `DE436698602` ist im Impressum eingetragen
+  (`src/pages/impressum.astro`).
 
 ### 1.2 AVV mit Vercel — ✅ archiviert
 - **Status:** DPA gespeichert unter
