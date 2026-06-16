@@ -29,7 +29,7 @@ npm run preview  # Build lokal ansehen
   personenbezugsfrei, respektiert Do-Not-Track)
 - **Schriften:** Space Grotesk & Hanken Grotesk, lokal gehostet (keine
   Verbindung zu Google Fonts)
-- **Hosting:** Netlify
+- **Hosting:** Vercel
 
 ## Offene Punkte
 

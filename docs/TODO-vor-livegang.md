@@ -15,15 +15,18 @@ liegt unter `docs/` und wird **nicht** mit der Website veröffentlicht.
   - Falls **keine** USt-IdNr. vorhanden ist (z. B. Kleinunternehmer nach § 19 UStG):
     Bescheid geben → der ganze Abschnitt wird entfernt.
 
-### 1.2 AVV mit Netlify abschließen / archivieren
+### 1.2 AVV mit Vercel abschließen / archivieren
 - **Warum:** Pflicht nach Art. 28 DSGVO; die Datenschutzerklärung sagt diesen
   AVV bereits zu.
-- **Wo bekommt man ihn:** Netlify stellt ein standardisiertes DPA bereit
-  (`netlify.com/pdf/netlify-dpa.pdf` bzw. über das Account-Dashboard). Bei
-  vielen Plänen gilt es durch Nutzung als akzeptiert.
-- **Was tun:** DPA herunterladen und in den eigenen Unterlagen ablegen.
-- **Drittland-Hinweis:** Netlify sitzt in den USA. Datenübermittlung ist in der
-  Datenschutzerklärung über die EU-Standardvertragsklauseln (SCC) abgedeckt.
+- **Wo bekommt man ihn:** Vercel stellt ein DPA bereit (über das
+  Account-Dashboard unter Settings → Security/Legal bzw.
+  `vercel.com/legal/dpa`). Bei vielen Plänen gilt es durch Nutzung als
+  akzeptiert.
+- **Was tun:** DPA herunterladen/akzeptieren und in den eigenen Unterlagen
+  ablegen.
+- **Drittland-Hinweis:** Vercel Inc. sitzt in den USA. Datenübermittlung ist in
+  der Datenschutzerklärung über die EU-Standardvertragsklauseln (SCC)
+  abgedeckt.
 
 ### 1.3 AVV mit Form.taxi anfordern / archivieren
 - **Warum:** Pflicht nach Art. 28 DSGVO; die Datenschutzerklärung sagt diesen
