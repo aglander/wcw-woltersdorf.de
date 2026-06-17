@@ -13,6 +13,24 @@
           Praxis- und Sprechstundenbedarf in Berlin, Brandenburg und
           deutschlandweit.
         </p>
+        <a
+          class="foot-login"
+          href="https://bestellungen.wcw-woltersdorf.de/login"
+          target="_blank"
+          rel="noopener"
+        >
+          <svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true">
+            <path
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.8"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4M10 17l5-5-5-5M15 12H3"
+            ></path>
+          </svg>
+          <span>Bestelltool · Kundenlogin</span>
+        </a>
       </div>
       <div>
         <div class="fh">Kontakt</div>
@@ -78,6 +96,28 @@
     max-width: 24em;
     font-size: 15.5px;
   }
+  .foot-login {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    margin-top: 18px;
+    padding: 10px 16px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    font-family: var(--disp);
+    font-weight: 600;
+    font-size: 14.5px;
+    color: #e7ede8;
+    transition: 0.18s ease;
+  }
+  .foot-login:hover {
+    border-color: var(--lime);
+    color: #fff;
+  }
+  .foot-login svg {
+    color: var(--lime);
+    flex: none;
+  }
   .fh {
     color: #fff;
     font-family: var(--disp);
@@ -97,7 +137,6 @@
   }
   .liefer {
     margin-top: 14px;
-    color: #fff;
   }
   .foot-bottom {
     display: flex;
