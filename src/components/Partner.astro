@@ -1,0 +1,193 @@
+---
+import { Image } from "astro:assets";
+import biankaEdler from "../assets/bianka-edler.jpg";
+
+const leistungen = [
+  "Abrechnungsoptimierung nach EBM & GOÄ",
+  "Prozessgestaltung in der Praxis",
+  "Praxisindividuelle Workshops mit dem Team",
+  "Begleitung bei der Niederlassung & Privatpraxis",
+];
+---
+
+<section class="block partner" id="partner">
+  <div class="wrap">
+    <div class="partner-panel">
+      <div class="partner-main">
+        <span class="eyebrow">Empfohlener Partner</span>
+        <h2>Mehr aus Ihrer Praxis herausholen — bei der Abrechnung.</h2>
+        <p class="lead">
+          Ich liefere die Produkte, mit denen Ihre Praxis läuft. Wenn es um
+          Abrechnung und Wirtschaftlichkeit geht, empfehle ich Ihnen eine
+          Expertin: <strong>Praxisberatung Edler</strong>. Bianka Edler ist seit
+          über 25 Jahren im Gesundheitswesen tätig und hilft Praxen, ungenutztes
+          Potenzial in der Abrechnung zu heben.
+        </p>
+        <ul class="partner-list">
+          {
+            leistungen.map((l) => (
+              <li>
+                <span class="ic">✓</span>
+                <span>{l}</span>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+
+      <aside class="partner-card">
+        <Image
+          class="pc-photo"
+          src={biankaEdler}
+          alt="Bianka Edler, Gründerin und Inhaberin der Praxisberatung Edler"
+          widths={[200, 320, 440]}
+          sizes="120px"
+          loading="lazy"
+        />
+        <div class="pc-name">Bianka Edler</div>
+        <div class="pc-kicker">Struktur. Klarheit. Wirtschaftlichkeit.</div>
+        <p class="pc-text">
+          Unabhängige Beratung für Abrechnung, Prozesse und Praxisorganisation —
+          regional in Brandenburg, bundesweit tätig.
+        </p>
+        <a
+          class="btn btn-light"
+          href="https://www.praxisberatung-edler.de/"
+          target="_blank"
+          rel="noopener"
+        >
+          Zur Praxisberatung Edler →
+        </a>
+        <p class="pc-note">
+          Praxisberatung Edler ist ein eigenständiges Unternehmen. Es handelt
+          sich um eine Empfehlung, nicht um eine Leistung von WCW.
+        </p>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<style>
+  .partner-panel {
+    display: grid;
+    grid-template-columns: 1.15fr 0.85fr;
+    gap: 0;
+    border-radius: 28px;
+    overflow: hidden;
+    border: 1px solid var(--line);
+    box-shadow: 0 30px 70px -40px rgba(35, 32, 27, 0.35);
+  }
+  .partner-main {
+    background: var(--bg-2);
+    padding: 48px 48px 46px;
+  }
+  .partner-main h2 {
+    font-size: 34px;
+    margin-top: 14px;
+    letter-spacing: -0.02em;
+  }
+  .partner-main .lead {
+    margin-top: 16px;
+    font-size: 18px;
+  }
+  .partner-main .lead strong {
+    color: var(--green-deep);
+    font-weight: 600;
+  }
+  .partner-list {
+    list-style: none;
+    margin: 26px 0 0;
+    padding: 0;
+    display: grid;
+    gap: 11px;
+  }
+  .partner-list li {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+    font-size: 16.5px;
+    color: var(--ink-soft);
+  }
+  .partner-list .ic {
+    flex: none;
+    width: 22px;
+    height: 22px;
+    border-radius: 6px;
+    background: var(--green);
+    color: #fff;
+    display: grid;
+    place-items: center;
+    font-size: 13px;
+    font-weight: 700;
+    margin-top: 1px;
+  }
+
+  .partner-card {
+    background: linear-gradient(
+      155deg,
+      var(--green) 0%,
+      var(--green-deep) 60%,
+      #225e2a 100%
+    );
+    color: #fff;
+    padding: 48px 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .pc-photo {
+    width: 96px;
+    height: 96px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid rgba(255, 255, 255, 0.5);
+    box-shadow: 0 12px 28px -12px rgba(0, 0, 0, 0.5);
+    margin-bottom: 18px;
+  }
+  .pc-name {
+    font-family: var(--disp);
+    font-weight: 700;
+    font-size: 26px;
+    letter-spacing: -0.02em;
+  }
+  .pc-kicker {
+    font-family: var(--disp);
+    font-weight: 500;
+    font-size: 13px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: #cfe6a5;
+    margin-top: 6px;
+  }
+  .pc-text {
+    margin-top: 14px;
+    font-size: 16px;
+    color: rgba(255, 255, 255, 0.88);
+    line-height: 1.5;
+  }
+  .partner-card .btn-light {
+    margin-top: 24px;
+    align-self: flex-start;
+  }
+  .pc-note {
+    margin-top: 18px;
+    font-size: 12.5px;
+    color: rgba(255, 255, 255, 0.7);
+    line-height: 1.45;
+  }
+
+  @media (max-width: 900px) {
+    .partner-panel {
+      grid-template-columns: 1fr;
+    }
+    .partner-main {
+      padding: 36px 28px 32px;
+    }
+    .partner-main h2 {
+      font-size: 28px;
+    }
+    .partner-card {
+      padding: 36px 28px;
+    }
+  }
+</style>
