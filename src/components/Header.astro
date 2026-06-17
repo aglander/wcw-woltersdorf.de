@@ -22,7 +22,10 @@ const links = [
       {links.map((l) => <a href={anchor(l.id)}>{l.label}</a>)}
     </nav>
     <div class="nav-cta">
-      <a class="nav-phone" href="tel:01627327400">0162 7327400</a>
+      <a class="nav-phone" href="tel:01627327400" aria-label="Anruf an 0162 7327400">
+        <span class="np-label">Anruf</span>
+        <span class="np-num">0162 7327400</span>
+      </a>
       <a class="btn btn-primary" href={anchor("angebot")}>Angebot anfordern</a>
     </div>
   </div>
@@ -93,6 +96,19 @@ const links = [
     font-family: var(--disp);
     font-weight: 600;
     font-size: 15px;
+    display: inline-flex;
+    align-items: baseline;
+    gap: 7px;
+  }
+  .nav-phone .np-label {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+  }
+  .nav-phone:hover .np-num {
+    color: var(--green-deep);
   }
   @media (max-width: 920px) {
     .nav-links {
